@@ -1,0 +1,62 @@
+/* Styling untuk tata letak dan desain */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+header p {
+    font-size: 1.2em;
+    margin: 0;
+}
+.project {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: left;
+}
+.project h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+}
+.project p {
+    font-size: 1.1em;
+}
+.footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.footer p {
+    margin: 5px 0;
+}
+.footer .heart {
+    color: red;
+}
+.footer .coffee {
+    font-size: 1.2em;
+}
+
