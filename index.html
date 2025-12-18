@@ -6,8 +6,10 @@
     :root {
       --blue: #009BDF;
       --orange: #FF8300;
-      --bg: #05070c;
-      --card: #0f172a;
+      --black: #020617;
+      --dark: #0b1220;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.1);
       --text: #e5e7eb;
       --muted: #9ca3af;
     }
@@ -16,35 +18,72 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #0f172a, #020617);
+      background: radial-gradient(circle at top, #0f172a, var(--black));
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 0;
     }
 
     header {
+      position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
+      z-index: 1;
     }
 
     .hero {
       max-width: 900px;
     }
 
-    .hero h1 {
+    .logo {
+      max-width: 160px;
+      margin: 0 auto 30px;
+      filter:
+        drop-shadow(0 0 8px rgba(0,155,223,0.8))
+        drop-shadow(0 0 20px rgba(0,155,223,0.6))
+        drop-shadow(0 0 36px rgba(255,131,0,0.35));
+      animation: cyberGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes cyberGlow {
+      from {
+        filter:
+          drop-shadow(0 0 6px rgba(0,155,223,0.6))
+          drop-shadow(0 0 16px rgba(0,155,223,0.4))
+          drop-shadow(0 0 26px rgba(255,131,0,0.25));
+      }
+      to {
+        filter:
+          drop-shadow(0 0 12px rgba(0,155,223,1))
+          drop-shadow(0 0 30px rgba(0,155,223,0.8))
+          drop-shadow(0 0 44px rgba(255,131,0,0.45));
+      }
+    }
+
+    h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
       margin-bottom: 20px;
     }
 
-    .hero h1 span {
-      color: var(--blue);
-    }
+    h1 span { color: var(--blue); }
 
-    .hero p {
+    .subtitle {
       font-size: 1.15rem;
       color: var(--muted);
       margin-bottom: 40px;
@@ -58,43 +97,53 @@
     }
 
     .badge {
-      border: 1px solid rgba(0,155,223,0.4);
       padding: 10px 18px;
       border-radius: 999px;
-      font-weight: 600;
+      border: 1px solid rgba(0,155,223,0.4);
+      background: rgba(0,155,223,0.12);
       color: var(--blue);
-      background: rgba(0,155,223,0.1);
+      font-weight: 600;
+      backdrop-filter: blur(6px);
     }
 
     section {
+      position: relative;
       max-width: 1100px;
       margin: auto;
-      padding: 80px 20px;
+      padding: 90px 20px;
+      z-index: 1;
     }
 
     section h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2rem;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       color: var(--blue);
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      gap: 26px;
     }
 
     .card {
       background: var(--card);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      backdrop-filter: blur(8px);
+      transition: transform .3s ease, border .3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--blue);
     }
 
     .card h3 {
-      margin-bottom: 10px;
       color: var(--orange);
+      margin-bottom: 12px;
     }
 
     .card p, .card ul {
@@ -106,12 +155,14 @@
 
     footer {
       text-align: center;
-      padding: 40px 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 50px 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
       color: var(--muted);
+      position: relative;
+      z-index: 1;
     }
 
-    a {
+    footer a {
       color: var(--blue);
       text-decoration: none;
       font-weight: 600;
@@ -120,77 +171,52 @@
   </style></head>
 <body><header>
   <div class="hero">
+    <img src="assets/logo.png" alt="NF Academy Logo" class="logo" />
     <h1>Slamet <span>Santoso</span></h1>
-    <p>
+    <p class="subtitle">
       Cybersecurity Practitioner • IT Operation Specialist • Educator<br />
-      Focused on Secure Infrastructure, Web Security, and Hands-on Cyber Labs
+      NF Academy Cybersecurity Platform
     </p><div class="badges">
   <div class="badge">CEH – Certified Ethical Hacker</div>
-  <div class="badge">CEI – Certified EC-Council Instructor</div>
-  <div class="badge">Cybersecurity & SOC</div>
+  <div class="badge">CEI – EC-Council Instructor</div>
+  <div class="badge">Cyber Lab & SOC</div>
 </div>
 
   </div>
 </header><section>
-  <h2>Professional Summary</h2>
+  <h2>Profile</h2>
   <p>
-    Experienced Cybersecurity professional with strong background in IT Operations, 
-    penetration testing fundamentals, SOC monitoring, and secure system architecture. 
-    Actively involved in cybersecurity education, curriculum development, and hands-on 
-    lab design using real-world attack and defense scenarios.
+    Cybersecurity professional with a strong foundation in IT Operations, secure system
+    architecture, and hands-on security training. Actively designing and delivering
+    cybersecurity platforms, labs, and curriculum aligned with real-world attack and
+    defense scenarios.
   </p>
 </section><section>
-  <h2>Core Competencies</h2>
+  <h2>Cybersecurity Capabilities</h2>
   <div class="grid">
     <div class="card">
       <h3>Offensive Security</h3>
       <ul>
-        <li>Penetration Testing Methodology</li>
-        <li>Web Security (OWASP Top 10)</li>
+        <li>Penetration Testing (CEH Methodology)</li>
+        <li>Web Security – OWASP Top 10</li>
         <li>Kali Linux, Burp Suite, Metasploit</li>
       </ul>
     </div><div class="card">
   <h3>Defensive & SOC</h3>
   <ul>
-    <li>Log Monitoring & Analysis</li>
-    <li>Wazuh, ELK Stack</li>
-    <li>Incident Detection & Response</li>
+    <li>Security Monitoring & Detection</li>
+    <li>Wazuh, ELK Stack, Zabbix</li>
+    <li>Incident Response & Analysis</li>
   </ul>
 </div>
 
 <div class="card">
-  <h3>Infrastructure & DevSecOps</h3>
+  <h3>Secure Infrastructure</h3>
   <ul>
-    <li>Linux Server & Hardening</li>
+    <li>Linux Hardening & Network Security</li>
     <li>Docker & Container Security</li>
     <li>Nginx, HA, Reverse Proxy</li>
   </ul>
-</div>
-
-  </div>
-</section><section>
-  <h2>Experience Highlights</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>IT Operation & Cybersecurity</h3>
-      <p>
-        Managing secure infrastructure, LMS platforms, containerized applications, 
-        and implementing security monitoring for production systems.
-      </p>
-    </div><div class="card">
-  <h3>Cybersecurity Educator</h3>
-  <p>
-    Designing and delivering cybersecurity courses, labs, and assessments covering
-    Pentesting, Web Security, NMS, SOC, and DevOps security.
-  </p>
-</div>
-
-<div class="card">
-  <h3>Community & Program Lead</h3>
-  <p>
-    Actively involved in community development, alumni programs, and cybersecurity
-    knowledge sharing initiatives.
-  </p>
 </div>
 
   </div>
@@ -207,7 +233,7 @@
     </div>
   </div>
 </section><footer>
-  © 2025 Slamet Santoso • Cybersecurity Portfolio<br />
+  © 2025 Slamet Santoso • NF Academy Cybersecurity<br />
   <a href="https://github.com/">GitHub</a> | <a href="#">LinkedIn</a>
 </footer></body>
 </html>
