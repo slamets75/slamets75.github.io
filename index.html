@@ -79,6 +79,11 @@
       font-family: 'Orbitron', sans-serif;
       font-size: clamp(2.6rem, 5vw, 4.2rem);
       margin-bottom: 20px;
+      filter:
+        drop-shadow(0 0 8px rgba(0,155,223,0.8))
+        drop-shadow(0 0 20px rgba(0,155,223,0.6))
+        drop-shadow(0 0 36px rgba(255,131,0,0.35));
+      animation: cyberGlow 3s ease-in-out infinite alternate;
     }
 
     h1 span { color: var(--blue); }
@@ -171,7 +176,7 @@
   </style></head>
 <body><header>
   <div class="hero">
-    <img src="assets/logo.png" alt="NF Academy Logo" class="logo" />
+    <!-- <img src="assets/logo.png" alt="NF Academy Logo" class="logo" /> -->
     <h1>Slamet <span>Santoso</span></h1>
     <p class="subtitle">
       Cybersecurity Practitioner • IT Operation Specialist • Educator<br />
