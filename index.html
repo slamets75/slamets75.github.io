@@ -1,80 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
-    <style>
-        /* Styling untuk tata letak dan desain */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-            text-align: center;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2em;
-            margin: 0;
-        }
-        .main-content {
-            background: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Slamet Santoso</h1>
-            <p>Selamat datang di halaman portofolio pribadi saya.</p>
-        </div>
-    </header>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slamet Santoso | Cybersecurity Portfolio</title>  <!-- Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">  <style>
+    :root {
+      --blue: #009BDF;
+      --orange: #FF8300;
+      --bg: #05070c;
+      --card: #0f172a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
 
-    <div class="container main-content">
-        <h2>Tentang Saya</h2>
-        <p>Saya adalah seorang pengembang web yang berfokus pada teknologi XYZ. Saya memiliki pengalaman dalam membangun aplikasi web interaktif dan responsif.</p>
-        <p>Portofolio saya mencakup berbagai proyek seperti:</p>
-        <ul>
-            <li>Proyek 1</li>
-            <li>Proyek 2</li>
-            <li>Proyek 3</li>
-        </ul>
-        <p>Jelajahi portofolio saya untuk melihat lebih banyak tentang pekerjaan saya.</p>
-        <a href="portofolio.html" class="btn">Lihat Portofolio</a>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--blue);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .badge {
+      border: 1px solid rgba(0,155,223,0.4);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      color: var(--blue);
+      background: rgba(0,155,223,0.1);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--blue);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--orange);
+    }
+
+    .card p, .card ul {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    ul { padding-left: 18px; }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+  </style></head>
+<body><header>
+  <div class="hero">
+    <h1>Slamet <span>Santoso</span></h1>
+    <p>
+      Cybersecurity Practitioner • IT Operation Specialist • Educator<br />
+      Focused on Secure Infrastructure, Web Security, and Hands-on Cyber Labs
+    </p><div class="badges">
+  <div class="badge">CEH – Certified Ethical Hacker</div>
+  <div class="badge">CEI – Certified EC-Council Instructor</div>
+  <div class="badge">Cybersecurity & SOC</div>
+</div>
+
+  </div>
+</header><section>
+  <h2>Professional Summary</h2>
+  <p>
+    Experienced Cybersecurity professional with strong background in IT Operations, 
+    penetration testing fundamentals, SOC monitoring, and secure system architecture. 
+    Actively involved in cybersecurity education, curriculum development, and hands-on 
+    lab design using real-world attack and defense scenarios.
+  </p>
+</section><section>
+  <h2>Core Competencies</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Offensive Security</h3>
+      <ul>
+        <li>Penetration Testing Methodology</li>
+        <li>Web Security (OWASP Top 10)</li>
+        <li>Kali Linux, Burp Suite, Metasploit</li>
+      </ul>
+    </div><div class="card">
+  <h3>Defensive & SOC</h3>
+  <ul>
+    <li>Log Monitoring & Analysis</li>
+    <li>Wazuh, ELK Stack</li>
+    <li>Incident Detection & Response</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Infrastructure & DevSecOps</h3>
+  <ul>
+    <li>Linux Server & Hardening</li>
+    <li>Docker & Container Security</li>
+    <li>Nginx, HA, Reverse Proxy</li>
+  </ul>
+</div>
+
+  </div>
+</section><section>
+  <h2>Experience Highlights</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>IT Operation & Cybersecurity</h3>
+      <p>
+        Managing secure infrastructure, LMS platforms, containerized applications, 
+        and implementing security monitoring for production systems.
+      </p>
+    </div><div class="card">
+  <h3>Cybersecurity Educator</h3>
+  <p>
+    Designing and delivering cybersecurity courses, labs, and assessments covering
+    Pentesting, Web Security, NMS, SOC, and DevOps security.
+  </p>
+</div>
+
+<div class="card">
+  <h3>Community & Program Lead</h3>
+  <p>
+    Actively involved in community development, alumni programs, and cybersecurity
+    knowledge sharing initiatives.
+  </p>
+</div>
+
+  </div>
+</section><section>
+  <h2>Certifications</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>CEH</h3>
+      <p>Certified Ethical Hacker – EC-Council</p>
     </div>
-
-    <footer class="footer">
-        <p>&copy; 2024 Portofolio Saya. Dibuat dengan ❤️</p>
-    </footer>
-</body>
+    <div class="card">
+      <h3>CEI</h3>
+      <p>Certified EC-Council Instructor</p>
+    </div>
+  </div>
+</section><footer>
+  © 2025 Slamet Santoso • Cybersecurity Portfolio<br />
+  <a href="https://github.com/">GitHub</a> | <a href="#">LinkedIn</a>
+</footer></body>
 </html>
-
